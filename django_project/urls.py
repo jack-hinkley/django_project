@@ -69,8 +69,5 @@ urlpatterns = [
 
     url(r'^register/$', register), 
     url(r'^success/$', register_success), 
-
-    #   Paypal
-
     
 ]

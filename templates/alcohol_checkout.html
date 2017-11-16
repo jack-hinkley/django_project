@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container checkout-content alcohol-checkout hidden">
+        <center><p class="mybasket-title">Alcohol Checkout</p></center>
+        <a href="/alcohol"><button class="btn button" style="width: 80px; margin: 0px 0px 20px 20px">Back</button></a>
+        <div class="menu-header">
+            <span class="segment-1" style="width: 300px; margin-left: 70px; ">Item Name</span>
+            <span class="segment-2" style="width: 200px;" >Quantity</span>
+            <span class="segment-3" style="width: 350px;">Requester</span>
+            <span class="segment-4" style="width: 100px;">Price</span>
+        </div>
+        <div class="checkout-body">
+
+        </div>
+		<input type="button" class="button checkout-button hidden" value="Checkout" style="margin: 20px;">
+        <div class="modal fade" id="modalCheckout" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close button" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Checkout failed</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p class="group-modal-message">Checkout failed, please make sure your input is correct</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn button btn-default" data-dismiss="modal" style="width: 100px">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_staff %}
+{% endblock js_staff %}

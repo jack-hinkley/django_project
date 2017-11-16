@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Even Up</title>
+        <!-- Core CSS - Include with every page -->
+        <link rel="icon" type="image/png" href="/static/img/basketIcon2.png"/>
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <link href="/static/css/style.css" rel="stylesheet">
+    </head>
+    <body class="item">
+        <div class="container hidden">
+            <form id="myForm" action="." method="post">{% csrf_token %}
+                <div class="modal-body">
+                    <table style="font-size: 14pt">
+                        <tr><td>Item Name:</td> <td id="modal-item-name">{{ form.name }}</td></tr>
+                        <tr><td>Quantity: </td> <td id="modal-item-quantity">{{ form.quantity }}</td></tr>
+                        <tr><td>Requester:</td> <td id="modal-user"><input class="form-control" disabled value='{{ user.username }}'></td></tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn button" data-dismiss="modal" id="add-button" style="width: 100px">Add</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="close-button" style="width: 100px">Close</button>
+                </div>
+            </form>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+            <!-- Core Scripts - Include with every page -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+            <script src = "{% static 'js/custom.js' %}"></script>
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        {% block javascript %}
+        {% endblock %}
+
+    </body>
+</html>

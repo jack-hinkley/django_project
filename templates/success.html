@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+    	<div>Thank you for registering.</div>
+    	<form id="userID" data-pk="{{ user.pk }} " data-email="{{ user.username }}"></form>{% csrf_token %}
+    	<div id="janks-ville" class="hidden"></div>
+    </div>
+{% endblock %}
+
+{% block js_staff %}
+{% endblock js_staff %}

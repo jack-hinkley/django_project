@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container dashboard hidden">
+    	<center><p class="mybasket-title">My Dashboard</p></center>
+		<div class="home-content" id="content">
+	    	<div class="home-panel home-grocery left">
+	    		<div class="panel-heading">Grocery</div>
+	    		<div class="panel-content">
+	    			<p class="dashboard-panel-header"><b>Requested Items:</b></p>
+	    			<!-- <p class="dashboard-panel-item">Idiot Sandwich</p> -->
+	    		</div>
+	    	</div>
+	    	<div class="home-panel home-alcohol right">
+	    		<div class="panel-heading">Alcohol</div>
+	    		<div class="panel-content">
+	    			<p class="dashboard-panel-header"><b>Requested Items:</b></p>
+	    			<!-- <p class="dashboard-panel-item">Makers 46</p> -->
+	    		</div>
+	    	</div>
+	    	<div class="home-panel home-payment left">
+	    		<div class="panel-heading">Payment</div>
+	    		<div class="panel-content">
+	    			<p class="dashboard-panel-header who-you-owe"><b>Who Owes You:</b></p>
+	    			<p class="dashboard-panel-header who-owe-you"><b>Who You Owe:</b></p>
+	    			<!-- <span class="dashboard-panel-item">Andy</span><span style="float: right; margin-right: 20px">N/A</span><br> -->
+	    		</div>
+	    	</div>
+	    	<div class="home-panel home-groups right">
+	    		<div class="panel-heading">Group</div>
+	    		<div class="panel-content">
+	    			<!-- <li class="dashboard-panel-list home-active">Home</li> -->
+	    		</div>
+	    	</div>
+	    </div>
+    </div>
+{% endblock %}	
+
+{% block js_staff %}
+{% endblock js_staff %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+	
+{% block content %}
+<div class="container hidden register">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default" style="margin-top: 20px">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Sign Up</h3>
+                </div>
+				<form class="login" method="post" action=".">{% csrf_token %}
+			        <center><table border="0" style="margin: 20px" class="registration_table">
+			     		<!-- //<h1 style="margin-bottom: 40px;">Sign Up</h1> -->
+			            {{ form.as_table }}
+			        </table></center>
+			        <center><input type="submit" class="button" value="Register" style="margin-bottom: 20px" /></center>
+			    </form>
+				<div class="login" style="margin-top: 0px;">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}	
+
+{% block js_staff %}
+{% endblock js_staff %}

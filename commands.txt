@@ -1,0 +1,10 @@
+Project root:	/home/django/django-project/
+
+
+sqlite3 smartbasket_sqlite3.db
+
+	Commands:
+		.tables
+		.help
+		select * from items limit 50
+

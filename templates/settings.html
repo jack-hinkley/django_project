@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container settings hidden">
+        <center><p class="mybasket-title">Settings</p></center>
+        <div class="container settings-content">
+        	<center><h2>User Settings</h2></center>
+        	<center><div class="container group-settings">
+	        	<form action="." method="post" id="change-username">{% csrf_token %}
+	        		<input class="form-control" id="user-name" placeholder="User Name" data-pk="{{ user.pk }}" style="width: 270px; display: inline; margin: 20px 5px 0px 0px;"/>
+	        		<input type="button" class="button" value="Change Username"/><br/>
+	        	</form>
+                <form action="." method="post" id="change-tax">{% csrf_token %}
+                    <select class="form-control" id="tax" data-pk="{{ user.pk }}" style="width: 270px; display: inline; margin: 20px 5px 0px 0px;">
+                        <option id="default-tax" value="0">0%</option>
+                        <option value="1">1%</option>
+                        <option value="2">2%</option>
+                        <option value="3">3%</option>
+                        <option value="4">4%</option>
+                        <option value="5">5%</option>
+                        <option value="6">6%</option>
+                        <option value="7">7%</option>
+                        <option value="8">8%</option>
+                        <option value="9">9%</option>
+                        <option value="10">10%</option>
+                        <option value="11">11%</option>
+                        <option value="12">12%</option>
+                        <option value="13">13%</option>
+                        <option value="14">14%</option>
+                        <option value="15">15%</option>
+                        <option value="16">16%</option>
+                        <option value="17">17%</option>
+                        <option value="18">18%</option>
+                        <option value="19">19%</option>
+                        <option value="20">20%</option>
+                    </select>
+                    <input type="button" class="button button-change-tax" value="Change Tax"/><br/>
+                </form>
+                <form action="." method="post" id="change-paypal-email">{% csrf_token %}
+                    <input type="email" class="form-control" id="paypal-email" placeholder="Paypal Email" style="width: 270px; display: inline; margin: 20px 5px 0px 0px;"/>
+                    <input type="button" class="button button-change-paypal" value="Change Paypal Email"/><br/>
+                </form>
+	        </div></center>
+        	<center><h2>Group Settings</h2></center>
+        	<center><div class="container group-settings">
+	        	<form action="." method="post" id="create-group">{% csrf_token %}
+	        		<input class="form-control" id="group-name" placeholder="Group Name" data-pk="{{ user.pk }}" style="width: 270px; display: inline; margin: 20px 5px 0px 0px;"/>
+	        		<input type="button" class="button button-create-group" value="Create New Group"/><br/>
+	        	</form>
+	        	<form action="." method="post" id="invite-user">{% csrf_token %}
+	        		<input class="form-control" id="invited-user" placeholder="User&#39;s Email" style="width: 270px; display: inline; margin: 20px 5px 0px 0px;"/>
+	        		<input type="button" class="button" value="Invite User to Group"/>
+	        	</form>
+                <form action="." method="post" id="change-currency">{% csrf_token %}
+                    <select class="form-control" id="currency" style="width: 270px; display: inline; margin: 20px 5px 0px 0px;">
+                                <option value="AUD">AUD</option>
+                                <option value="BRL">BRL</option>
+                                <option value="CAD">CAD</option>
+                                <option value="CZK">CZK</option>
+                                <option value="DKK">DKK</option>
+                                <option value="EUR">EUR</option>
+                                <option value="HKD">HKD</option>
+                                <option value="HUF">HUF</option>
+                                <option value="ILS">ILS</option>
+                                <option value="JPY">JPY</option>
+                                <option value="MYR">MYR</option>
+                                <option value="MXN">MXN</option>
+                                <option value="NOK">NOK</option>
+                                <option value="NZD">NZD</option>
+                                <option value="PHP">PHP</option>
+                                <option value="PLN">PLN</option>
+                                <option value="GBP">GBP</option>
+                                <option value="SGD">SGD</option>
+                                <option value="SEK">SEK</option>
+                                <option value="CHF">CHF</option>
+                                <option value="TWD">TWD</option>
+                                <option value="THB">THB</option>
+                                <option value="USD" selected="true"> USD </option>
+                            </select>
+                    <input type="button" class="button button-change-currency" value="Change Currency"/><br/>
+                </form>
+        	</div>
+        </div></center>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalGroupCreated" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close button" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Group Created</h3>
+                    </div>
+                    <div class="modal-body">
+                    	<p class="group-modal-message">Group Successfully Created</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn button btn-default" autofocus="true" onclick="reload()" data-dismiss="modal" style="width: 100px">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- USER INVITE -->
+        <div class="modal fade" id="modalSettings" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close button" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">User Invited to Group</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p class="group-modal-message">User Successfully Invited to Group</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn button btn-default" autofocus="true" data-dismiss="modal" style="width: 100px">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_staff %}
+{% endblock js_staff %}

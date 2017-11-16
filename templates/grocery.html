@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container grocery hidden" id="grocery-main">
+        <center><p class="mybasket-title">Grocery</p></center>
+        <div id="grocery-content">
+            <div id="grocery-buttons" style="margin-bottom: 20px">
+                <center>
+                    <button type="button" class="btn button" data-toggle="modal" data-target="#myModal" data-name="grocery">Add Item</button>
+                	<input type="button" class="button grocery_shoplist" value="Shop This List">
+                    <input type="button" class="button grocery_history" value="Grocery History">
+                </center>
+            </div>
+            <div class="menu-header">
+            	<span class="segment-1" style="width: 450px;">Item Name</span>
+            	<span class="segment-2" style="width: 200px;">Quantity</span>
+                <span class="segment-3" style="width: 250px;">Requester</span>
+                <!-- <span class="segment-4" style="text-align: right">Edit</span>  -->
+            </div>
+            <div class="container mybasket-content" id="content">
+            	<!-- <div class="menu-item menu-item-activate" id="0">
+            		<div class="basket-text"><p>
+            			<span class="segment-1" style="width: 500px">Chicken Breast</span>
+            			<span class="segment-2" style="width: 200px;">6</span>
+            			<span class="segment-3">Jack</span>
+            		</p></div>
+                    <div class="menu-item-button-collapsed">
+                        <img src="/static/img/edit_button.png" class="edit-button">
+                    </div>
+            		<div class="menu-item-button hidden">
+            			<input type="button" class="edit-button button" value="Edit">
+            		</div>           
+        		</div> -->
+            </div>
+        </div>        
+    </div>
+{% endblock %}
+
+{% block js_staff %}
+{% endblock js_staff %}
